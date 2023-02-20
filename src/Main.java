@@ -26,14 +26,23 @@ public class Main
         }*/
 
         BrugerMapper brugerMapper = new BrugerMapper();
-        brugerMapper.getBruger();
-        System.out.println();
-        System.out.println();
-        System.out.println();
         BogMapper bogMapper = new BogMapper();
+
+
+        System.out.println("få alle bruger");
+        brugerMapper.getBruger();
+        System.out.println("");
+        System.out.println("Få alle bøger: ");
         bogMapper.getBogs();
-        System.out.println();
+        System.out.println(" ");
+        System.out.println("Få alle forfatter: ");
         bogMapper.getForfatters();
+        System.out.println(" ");
+        System.out.println("Få bruger på id'et");
+        System.out.println(brugerMapper.getBrugerByID(1));
+        System.out.println(" ");
+        System.out.println("Alle post nummer: ");
+        brugerMapper.getAllPostnr();
     }
 
 }
