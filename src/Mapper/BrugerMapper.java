@@ -50,4 +50,11 @@ public class BrugerMapper
     }
 
 
+    public Bruger getBrugerByID(int brugerID)
+    {
+        return null;
+    }
+
+
+    // TODO make method for postnr
 }

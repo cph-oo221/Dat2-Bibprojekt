@@ -1,3 +1,4 @@
+import Mapper.BogMapper;
 import Mapper.BrugerMapper;
 
 public class Main
@@ -26,6 +27,13 @@ public class Main
 
         BrugerMapper brugerMapper = new BrugerMapper();
         brugerMapper.getBruger();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        BogMapper bogMapper = new BogMapper();
+        bogMapper.getBogs();
+        System.out.println();
+        bogMapper.getForfatters();
     }
 
 }

@@ -35,8 +35,8 @@ public class Forfatter
     @Override
     public String toString()
     {
-        return "Forfatter:" +
+        return "Forfatter: " +
                 "idforfatter: " + idforfatter +
-                ", forfatter:" + forfatter;
+                ", forfatter: " + forfatter;
     }
 }
