@@ -1,7 +1,7 @@
 package Mapper;
 
 import Entities.Bruger;
-import database.ConnectionConfiguration;
+import Database.ConnectionConfiguration;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

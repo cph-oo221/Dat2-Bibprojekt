@@ -1,6 +1,5 @@
-package database;
+package Database;
 
-import javax.swing.plaf.TextUI;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
