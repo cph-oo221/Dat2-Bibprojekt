@@ -58,11 +58,10 @@ public class Bruger
     @Override
     public String toString()
     {
-        return "Bruger{" +
-                "idlåner=" + idlåner +
-                ", navn='" + navn + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", postnr=" + postnr +
-                '}';
+        return "Bruger: " +
+                "idlåner: " + idlåner +
+                ", navn: " + navn  +
+                ", adresse: " + adresse +
+                ", postnr: " + postnr;
     }
 }
