@@ -7,11 +7,15 @@ import Entities.Postnr;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BrugerMapper
 {
+
+    // BRUGER - GET ALL & BY ID
+
     public List<Bruger> getBruger()
     {
         PreparedStatement statement;
@@ -37,7 +41,7 @@ public class BrugerMapper
             }
 
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
             e.printStackTrace();
         }
@@ -75,7 +79,7 @@ public class BrugerMapper
             }
 
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
             e.printStackTrace();
         }
@@ -84,7 +88,8 @@ public class BrugerMapper
     }
 
 
-    // TODO make method for postnr
+
+    // POSTNR - GET ALL & BY ID:
 
     public List<Postnr> getAllPostnr()
     {
@@ -109,7 +114,7 @@ public class BrugerMapper
             }
 
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
             e.printStackTrace();
         }
@@ -121,5 +126,39 @@ public class BrugerMapper
 
 
         return postnrList;
+    }
+
+
+
+    public Postnr getPostnrByID(int postnrID)
+    {
+        PreparedStatement statement;
+        Postnr postnr = null;
+
+        try
+        {
+            Connection connection = ConnectionConfiguration.getConnection();
+            statement = connection.prepareStatement("select * from bibliotek.postnr where idpostnr = ?");
+
+            statement.setInt(1, postnrID);
+
+            ResultSet result = statement.executeQuery();
+
+            while (result.next())
+            {
+                postnrID = result.getInt("idpostnr");
+                String bynavn = result.getString("bynavn");
+
+                postnr = new Postnr(postnrID, bynavn);
+
+            }
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return postnr;
     }
 }
