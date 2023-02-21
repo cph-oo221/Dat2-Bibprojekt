@@ -15,7 +15,7 @@ import java.util.List;
 public class BogMapper
 {
     // BOG - GET ALL, BY ID & delete book.
-    public List<Bog> getBogs()
+    public List<Bog> getBooks()
     {
         PreparedStatement statement;
         List<Bog> bogList = new ArrayList<>();

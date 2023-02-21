@@ -129,7 +129,7 @@ public class BrugerMapper
 
     // POSTNR - GET ALL & BY ID:
 
-    public List<Postnr> getAllPostnr()
+    public List<Postnr> getAllZipCodes()
     {
         PreparedStatement statement;
         List<Postnr> postnrList = new ArrayList<>();
@@ -168,7 +168,7 @@ public class BrugerMapper
 
 
 
-    public Postnr getPostnrByID(int postnrID)
+    public Postnr getZipCodeByID(int postnrID)
     {
         PreparedStatement statement;
         Postnr postnr = null;
@@ -191,6 +191,40 @@ public class BrugerMapper
 
             }
 
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return postnr;
+    }
+
+    public Postnr deleteZipCode(int postnrID)
+    {
+        PreparedStatement statementDelete;
+        PreparedStatement statementSelect;
+        Postnr postnr = null;
+        try
+        {
+            Connection connection = ConnectionConfiguration.getConnection();
+            statementDelete = connection.prepareStatement("delete from bibliotek.postnr where idpostnr = ?");
+            statementSelect = connection.prepareStatement("select * from bibliotek.postnr where idpostnr = ?");
+
+            statementSelect.setInt(1, postnrID);
+            ResultSet result = statementSelect.executeQuery();
+
+            while (result.next())
+            {
+                postnrID = result.getInt("idpostnr");
+                String bynavn = result.getString("bynavn");
+                postnr = new Postnr(postnrID, bynavn);
+            }
+
+            System.out.println("Postnr slettet: " + postnr.toString());
+
+            statementDelete.setInt(1, postnrID);
+            statementDelete.executeUpdate();
         }
         catch (SQLException e)
         {

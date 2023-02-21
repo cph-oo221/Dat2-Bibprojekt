@@ -81,6 +81,11 @@ public class Main
 
         // brugerMapper.deleteBruger(7);
 
+        // registerBrugerMapper.registerZipCode(2900, "Hellerup");
+
+
+        // brugerMapper.deleteZipCode(2900);
+
     }
 
 }

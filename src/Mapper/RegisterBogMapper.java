@@ -1,7 +1,6 @@
 package Mapper;
 
 import Database.ConnectionConfiguration;
-import Entities.Bog;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
