@@ -12,6 +12,12 @@ public class Forfatter
         this.forfatter = forfatter;
     }
 
+    // CONSTRUCTOR WITHOUT IDFORFATTER
+    /*public Forfatter(String forfatter)
+    {
+        this.forfatter = forfatter;
+    }*/
+
     public int getIdforfatter()
     {
         return idforfatter;

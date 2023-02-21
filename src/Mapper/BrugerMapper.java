@@ -87,6 +87,44 @@ public class BrugerMapper
         return bruger;
     }
 
+    public Bruger deleteBruger(int brugerID)
+    {
+        PreparedStatement statementDelete;
+        PreparedStatement statementSelect;
+        Bruger bruger = null;
+        try
+        {
+            Connection connection = ConnectionConfiguration.getConnection();
+
+            statementDelete = connection.prepareStatement("delete from bibliotek.låner where idlåner = ?");
+            statementSelect = connection.prepareStatement("select * from bibliotek.låner where idlåner = ?");
+
+            statementSelect.setInt(1, brugerID);
+            ResultSet result = statementSelect.executeQuery();
+            while (result.next())
+            {
+                brugerID = result.getInt("idlåner");
+                String navn = result.getString("navn");
+                String adresse = result.getString("adresse");
+                int postnr = result.getInt("postnr");
+
+                bruger = new Bruger(brugerID, navn, adresse, postnr);
+            }
+            System.out.println("Bruger slettet: " + bruger.toString());
+
+            statementDelete.setInt(1, brugerID);
+            statementDelete.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        return bruger;
+    }
+
 
 
     // POSTNR - GET ALL & BY ID:

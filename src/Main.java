@@ -1,5 +1,7 @@
 import Mapper.BogMapper;
 import Mapper.BrugerMapper;
+import Mapper.RegisterBogMapper;
+import Mapper.RegisterBrugerMapper;
 
 public class Main
 {
@@ -27,6 +29,8 @@ public class Main
 
         BrugerMapper brugerMapper = new BrugerMapper();
         BogMapper bogMapper = new BogMapper();
+        RegisterBogMapper registerBogMapper = new RegisterBogMapper();
+        RegisterBrugerMapper registerBrugerMapper = new RegisterBrugerMapper();
 
 
         /*System.out.println("få alle bruger");
@@ -45,7 +49,7 @@ public class Main
         brugerMapper.getAllPostnr();
         System.out.println(" ");
         System.out.println("Få post nummer på id");
-        System.out.println(brugerMapper.getPostnrByID(2880));*/
+        System.out.println(brugerMapper.getPostnrByID(2880));
 
         System.out.println("Get book by id: ");
         System.out.println(bogMapper.getBookByID(1));
@@ -60,6 +64,23 @@ public class Main
         System.out.println();
         System.out.println("Get udlån by id");
         System.out.println(bogMapper.getUdlånByID(2));
+
+
+        System.out.println("register a book");
+        registerBogMapper.registerBook("Harry Potter and the Goblet of Fire", 1);
+
+        System.out.println("register An Author");
+        registerBogMapper.registerAnAuthors("Helle Helle");
+
+        System.out.println("Register a zip code");
+        registerBrugerMapper.registerZipCode(2000, "Frederiksberg");
+
+        registerBrugerMapper.registerBruger("Annelise", "Finsensvej 12", 2000);*/
+
+        // bogMapper.deleteBook(5);
+
+        // brugerMapper.deleteBruger(7);
+
     }
 
 }

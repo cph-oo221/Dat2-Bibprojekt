@@ -13,6 +13,12 @@ public class Bog
         this.forfatter = forfatter;
     }
 
+    /*public Bog(String titel, int forfatter)
+    {
+        this.titel = titel;
+        this.forfatter = forfatter;
+    }*/
+
 
     public int getIdbøger()
     {
@@ -53,4 +59,5 @@ public class Bog
                 ", titel: " + titel  +
                 ", forfatter: " + forfatter;
     }
+
 }

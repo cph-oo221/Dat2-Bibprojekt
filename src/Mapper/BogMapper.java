@@ -14,7 +14,7 @@ import java.util.List;
 
 public class BogMapper
 {
-    // BOG - GET ALL & BY ID.
+    // BOG - GET ALL, BY ID & delete book.
     public List<Bog> getBogs()
     {
         PreparedStatement statement;
@@ -80,10 +80,55 @@ public class BogMapper
             e.printStackTrace();
         }
 
+        return bog;
+    }
 
+    public Bog deleteBook(int bøgerID)
+    {
+        PreparedStatement statementDelete;
+
+        PreparedStatement statementBook;
+
+        Bog bog = null;
+        try
+        {
+            Connection connection = ConnectionConfiguration.getConnection();
+
+            statementDelete = connection.prepareStatement("delete from bibliotek.bøger where idbøger = ?");
+
+            statementBook = connection.prepareStatement("select * from bibliotek.bøger where idbøger = ?");
+
+            statementBook.setInt(1, bøgerID);
+
+
+            ResultSet result = statementBook.executeQuery();
+
+            while (result.next())
+            {
+                bøgerID = result.getInt("idbøger");
+                String titel = result.getString("titel");
+                int forfatter = result.getInt("forfatter");
+
+                bog = new Bog(bøgerID, titel, forfatter);
+            }
+
+            System.out.println("The book has been deleted");
+            System.out.println("Book: " + bog.toString());
+
+            statementDelete.setInt(1, bøgerID);
+            statementDelete.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
         return bog;
     }
+
+
+
 
     // AUTHORS - GET ALL & BY ID
     public List<Forfatter> getAllAuthors()
