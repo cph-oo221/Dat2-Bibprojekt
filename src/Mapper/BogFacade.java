@@ -4,7 +4,7 @@ import Entities.Bog;
 
 import java.util.List;
 
-public class BøgerFacade
+public class BogFacade
 {
     // BØGER
     public static List<Bog> hentBøger()
