@@ -267,7 +267,7 @@ public class BrugerMapper
 
         for (Udlån udlån1 : udlånList)
         {
-            System.out.println(udlån1);
+            System.out.println(udlån1.toString());
         }
 
         return udlånList;
@@ -300,10 +300,12 @@ public class BrugerMapper
         {
             e.printStackTrace();
         }
-        
 
         return udlån;
     }
+
+
+    // todo - delete book loan
 
 
 }

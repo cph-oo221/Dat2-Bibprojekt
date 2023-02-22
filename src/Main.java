@@ -86,6 +86,9 @@ public class Main
 
         // brugerMapper.deleteZipCode(2900);
 
+
+        // brugerMapper.getAllBookLoans();
+
     }
 
 }
