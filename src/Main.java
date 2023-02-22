@@ -34,5 +34,9 @@ public class Main
         System.out.println(udlån1.toString());
         }*/
 
+
+
+
+
     }
 }
