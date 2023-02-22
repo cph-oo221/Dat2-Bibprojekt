@@ -1,4 +1,7 @@
-
+import Language.DanskDialog;
+import Language.Dialog;
+import Language.EngelskDialog;
+import Utilities.Input;
 
 public class Main
 {
@@ -35,7 +38,36 @@ public class Main
         }*/
 
 
+        Dialog dialog;
 
+        dialog = new DanskDialog();
+        System.out.println(dialog.hello());
+        System.out.println(dialog.welcome());
+        System.out.println(Input.getInt(dialog.askAge()));
+
+        dialog = new EngelskDialog();
+        System.out.println(dialog.hello());
+        System.out.println(dialog.welcome());
+
+
+        dialog = new DanskDialog();
+
+        while (true)
+        {
+            System.out.println(Input.getInt(dialog.askAge()));
+            if (Input.getString(dialog.changeLanguage()).equalsIgnoreCase("y"))
+            {
+                if(dialog instanceof DanskDialog)
+                {
+                    dialog = new EngelskDialog();
+                }
+                else
+                {
+                    dialog = new DanskDialog();
+                }
+            }
+
+        }
 
 
     }
