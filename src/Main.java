@@ -1,9 +1,4 @@
-import Entities.Bog;
-import Entities.Forfatter;
-import Entities.Udlån;
-import Mapper.*;
 
-import java.util.List;
 
 public class Main
 {
@@ -39,8 +34,5 @@ public class Main
         System.out.println(udlån1.toString());
         }*/
 
-
-        ForfatterFacade.registrerForfatter(new Forfatter("H.C. Andersen"));
-        
     }
 }
