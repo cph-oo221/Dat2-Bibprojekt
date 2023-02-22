@@ -41,11 +41,6 @@ public class UdlaanMapper
             e.printStackTrace();
         }
 
-        for (Udlån udlån1 : udlånList)
-        {
-            System.out.println(udlån1.toString());
-        }
-
         return udlånList;
     }
 
@@ -77,6 +72,28 @@ public class UdlaanMapper
             e.printStackTrace();
         }
 
+        return udlån;
+    }
+
+
+    protected Udlån registerUdlån(Udlån udlån)
+    {
+        PreparedStatement statement;
+        try
+        {
+            Connection connection = ConnectionConfiguration.getConnection();
+            statement = connection.prepareStatement("insert into bibliotek.udlån (idbøger, idlåner) values (?, ?)");
+
+            statement.setInt(1, udlån.getIdBøger());
+            statement.setInt(2, udlån.getIdLåner());
+
+            statement.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return udlån;
     }
 }

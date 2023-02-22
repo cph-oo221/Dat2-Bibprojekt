@@ -20,4 +20,11 @@ public class UdlånFacade
 
         return udlaanMapper.getBookLoansByID(udlånID);
     }
+
+    public static Udlån registrerUdlån(Udlån udlån)
+    {
+        UdlaanMapper udlaanMapper = new UdlaanMapper();
+
+        return udlaanMapper.registerUdlån(udlån);
+    }
 }

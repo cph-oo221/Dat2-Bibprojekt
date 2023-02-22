@@ -80,7 +80,7 @@ public class ForfatterMapper
     }
 
 
-    protected void registerAnAuthors(String forfatter)
+    protected Forfatter registerAnAuthors(Forfatter forfatter)
     {
         PreparedStatement statement;
         try
@@ -88,17 +88,16 @@ public class ForfatterMapper
             Connection connection = ConnectionConfiguration.getConnection();
             statement = connection.prepareStatement("insert into bibliotek.forfatter (forfatter) values (?)");
 
-            statement.setString(1, forfatter);
+            statement.setString(1, forfatter.getForfatter());
 
             statement.executeUpdate();
 
-            System.out.println("The author has been register");
-            System.out.println("Forfatter: " + forfatter);
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
+        return forfatter;
     }
 
 }

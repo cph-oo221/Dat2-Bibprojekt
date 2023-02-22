@@ -2,6 +2,7 @@ package Mapper;
 
 import Entities.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class BrugerFacade
@@ -28,11 +29,19 @@ public class BrugerFacade
         return brugerMapper.deleteBruger(brugerID);
     }
 
-    public static void registrerBruger(String navn, String adresse, int postnr)
+    public static Bruger registrerBruger(Bruger bruger)
     {
         BrugerMapper brugerMapper = new BrugerMapper();
 
-        brugerMapper.registerBruger(navn, adresse, postnr);
+        return brugerMapper.registerBruger(bruger);
+    }
+
+
+    public static Bruger opdaterBruger(Bruger bruger)
+    {
+        BrugerMapper brugerMapper = new BrugerMapper();
+
+        return brugerMapper.opretBruger(bruger);
     }
 
 

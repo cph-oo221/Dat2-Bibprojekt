@@ -42,10 +42,6 @@ public class BogMapper
             e.printStackTrace();
         }
 
-        for (Bog bog : bogList)
-        {
-            System.out.println(bog.toString());
-        }
 
         return bogList;
     }
@@ -127,7 +123,7 @@ public class BogMapper
         return bog;
     }
 
-    protected void registerBook(String titel, int forfatter)
+    protected Bog registerBook(Bog bog)
     {
         PreparedStatement statement;
         try
@@ -135,15 +131,10 @@ public class BogMapper
             Connection connection = ConnectionConfiguration.getConnection();
             statement = connection.prepareStatement("insert into bibliotek.bøger (titel, forfatter) VALUES (?, ?)");
 
-            statement.setString(1, titel);
-            statement.setInt(2, forfatter);
+            statement.setString(1, bog.getTitel());
+            statement.setInt(2, bog.getForfatter());
 
             statement.executeUpdate();
-
-            System.out.println("Bog er nu registreret");
-
-            System.out.println("Titel: " + titel + " Forfatter: " + forfatter);
-
 
 
             // cant use executeQuery() with insert statement
@@ -163,6 +154,8 @@ public class BogMapper
         {
             e.printStackTrace();
         }
+
+        return bog;
     }
 
 }

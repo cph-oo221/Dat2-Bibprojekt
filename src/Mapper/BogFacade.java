@@ -29,10 +29,10 @@ public class BogFacade
         return bogMapper.deleteBook(bogID);
     }
 
-    public static void registrerBog(String titel, int forfatter)
+    public static Bog registrerBog(Bog bog)
     {
         BogMapper bogMapper = new BogMapper();
 
-        bogMapper.registerBook(titel, forfatter);
+        return bogMapper.registerBook(bog);
     }
 }

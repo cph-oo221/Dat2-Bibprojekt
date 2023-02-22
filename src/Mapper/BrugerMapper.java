@@ -5,10 +5,7 @@ import Database.ConnectionConfiguration;
 import Entities.Postnr;
 import Entities.Udlån;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,7 +123,7 @@ public class BrugerMapper
         return bruger;
     }
 
-    protected void registerBruger(String navn, String adresse, int postnr)
+    protected Bruger registerBruger(Bruger bruger)
     {
         PreparedStatement statement;
         try
@@ -134,19 +131,54 @@ public class BrugerMapper
             Connection connection = ConnectionConfiguration.getConnection();
             statement = connection.prepareStatement("insert into bibliotek.låner (navn, adresse, postnr) VALUES (?, ?, ?)");
 
-            statement.setString(1, navn);
-            statement.setString(2, adresse);
-            statement.setInt(3, postnr);
+            statement.setString(1, bruger.getNavn());
+            statement.setString(2, bruger.getAdresse());
+            statement.setInt(3, bruger.getPostnr());
 
             statement.executeUpdate();
 
-            System.out.println("New user has been registed");
-            System.out.println("Name: " + navn + " Adresse: " + adresse + " Zip code: " + postnr);
+
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
+
+        return bruger;
+    }
+
+
+    protected Bruger opretBruger(Bruger bruger)
+    {
+        try {
+            Connection connection = ConnectionConfiguration.getConnection();
+
+            String sql = "INSERT INTO bibliotek.låner (navn, adresse, postnr) VALUES (?,?,?)";
+
+            // PreparedStatement statement = connection.prepareStatement("INSERT  INTO manBib.Bruger (navn, adresse, postnr)" + "VALUES (?,?,?)");
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            statement.setString(1, bruger.getNavn());
+            statement.setString(2, bruger.getAdresse());
+            statement.setInt(3, bruger.getPostnr());
+
+
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
+
+            resultSet.next();
+
+
+            bruger.setIdlåner(resultSet.getInt(1));
+
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return bruger;
     }
 
 }

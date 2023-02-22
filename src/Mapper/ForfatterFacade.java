@@ -20,4 +20,11 @@ public class ForfatterFacade
 
         return forfatterMapper.getAuthorsByID(forfatterID);
     }
+
+    public static Forfatter registrerForfatter(Forfatter forfatter)
+    {
+        ForfatterMapper forfatterMapper = new ForfatterMapper();
+
+        return forfatterMapper.registerAnAuthors(forfatter);
+    }
 }

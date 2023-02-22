@@ -14,6 +14,12 @@ public class Udlån
         this.idLåner = idLåner;
     }
 
+    public Udlån(int idBøger, int idLåner)
+    {
+        this.idBøger = idBøger;
+        this.idLåner = idLåner;
+    }
+
 
     public int getIdUdlån()
     {

@@ -117,7 +117,7 @@ public class PostnrMapper
         return postnr;
     }
 
-    protected void registerZipCode(int postnr, String bynavn)
+    protected Postnr registerZipCode(Postnr postnr)
     {
         PreparedStatement statement;
         try
@@ -125,16 +125,16 @@ public class PostnrMapper
             Connection connection = ConnectionConfiguration.getConnection();
             statement = connection.prepareStatement("insert into bibliotek.postnr (idpostnr, bynavn) VALUES (?, ?)");
 
-            statement.setInt(1, postnr);
-            statement.setString(2, bynavn);
+            statement.setInt(1, postnr.getPostnr());
+            statement.setString(2, postnr.getBynavn());
             statement.executeUpdate();
 
-            System.out.println("A new Zip code has been registed");
-            System.out.println("Zip code: " + postnr + " City: " + bynavn);
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
+
+        return postnr;
     }
 }

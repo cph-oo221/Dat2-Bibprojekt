@@ -17,12 +17,12 @@ public class Bruger
 
 
     // CONSTRUCTOR WITHOUT IDLÅNER
-    /*public Bruger(String navn, String adresse, int postnr)
+    public Bruger(String navn, String adresse, int postnr)
     {
         this.navn = navn;
         this.adresse = adresse;
         this.postnr = postnr;
-    }*/
+    }
 
     public int getIdlåner()
     {

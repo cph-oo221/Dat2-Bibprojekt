@@ -21,10 +21,10 @@ public class PostnrFacade
         return postnrMapper.getZipCodeByID(postnrID);
     }
 
-    public static void registrerPostnr(int postnr, String bynavn)
+    public static Postnr registrerPostnr(Postnr postnr)
     {
         PostnrMapper postnrMapper = new PostnrMapper();
 
-        postnrMapper.registerZipCode(postnr, bynavn);
+        return postnrMapper.registerZipCode(postnr);
     }
 }
