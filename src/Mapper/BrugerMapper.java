@@ -2,8 +2,6 @@ package Mapper;
 
 import Entities.Bruger;
 import Database.ConnectionConfiguration;
-import Entities.Postnr;
-import Entities.Udlån;
 
 import java.sql.*;
 import java.util.ArrayList;
