@@ -44,7 +44,6 @@ public class PostnrMapper
     }
 
 
-
     protected Postnr getZipCodeByID(int postnrID)
     {
         PreparedStatement statement;
@@ -65,7 +64,6 @@ public class PostnrMapper
                 String bynavn = result.getString("bynavn");
 
                 postnr = new Postnr(postnrID, bynavn);
-
             }
 
         }

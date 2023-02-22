@@ -14,7 +14,6 @@ import java.util.List;
 
 public class BogMapper
 {
-    // BOG - GET ALL, BY ID & delete book.
     protected List<Bog> getBooks()
     {
         PreparedStatement statement;

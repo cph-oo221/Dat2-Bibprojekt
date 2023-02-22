@@ -10,14 +10,12 @@ public class Input
 
         System.out.println(s + " : ");
 
-
         return scanner.nextLine();
     }
 
     public static int getInt(String s)
     {
         int res = 0;
-
 
         while (true)
         {

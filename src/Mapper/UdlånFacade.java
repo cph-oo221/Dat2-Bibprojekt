@@ -6,7 +6,6 @@ import java.util.List;
 
 public class UdlånFacade
 {
-    // UDLÅN
     public static List<Udlån> hentUdlån()
     {
         UdlaanMapper udlaanMapper = new UdlaanMapper();

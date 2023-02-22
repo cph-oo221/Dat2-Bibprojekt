@@ -14,7 +14,6 @@ public class BogFacade
         return bogMapper.getBooks();
     }
 
-
     public static Bog hentBogByID(int bogID)
     {
         BogMapper bogMapper = new BogMapper();

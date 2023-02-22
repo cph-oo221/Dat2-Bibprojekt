@@ -2,12 +2,10 @@ package Mapper;
 
 import Entities.*;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class BrugerFacade
 {
-    // BRUGER
     public static List<Bruger> hentBruger()
     {
         BrugerMapper brugerMapper = new BrugerMapper();
@@ -36,14 +34,10 @@ public class BrugerFacade
         return brugerMapper.registerBruger(bruger);
     }
 
-
     public static Bruger opdaterBruger(Bruger bruger)
     {
         BrugerMapper brugerMapper = new BrugerMapper();
 
         return brugerMapper.opretBruger(bruger);
     }
-
-
-
 }

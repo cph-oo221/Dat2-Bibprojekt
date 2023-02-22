@@ -6,7 +6,6 @@ import java.util.List;
 
 public class ForfatterFacade
 {
-    // FORFATTER
     public static List<Forfatter> hentForfatter()
     {
         ForfatterMapper forfatterMapper = new ForfatterMapper();

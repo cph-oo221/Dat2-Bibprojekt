@@ -14,7 +14,6 @@ public class Main
     {
         /*Dialog dialog;
 
-
         dialog = new DanskDialog();
 
         while (true)
@@ -37,6 +36,5 @@ public class Main
 
         Menu menu = new Menu();
         menu.run();
-        
     }
 }

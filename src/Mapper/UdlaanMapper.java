@@ -88,7 +88,6 @@ public class UdlaanMapper
             statement.setInt(2, udlån.getIdLåner());
 
             statement.executeUpdate();
-
         }
         catch (SQLException e)
         {

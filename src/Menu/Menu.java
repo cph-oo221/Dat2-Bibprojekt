@@ -13,16 +13,17 @@ public class Menu
 
     public void run()
     {
+        dialog = new EngelskDialog();
         selectLanguage();
     }
 
     private void selectLanguage()
     {
-        System.out.println("Choose language:");
-        System.out.println("1. Dansk");
-        System.out.println("2. Engelsk");
-        System.out.println("3. Exit");
-        System.out.print("Choice: ");
+        System.out.println(dialog.chooseLanguage());
+        System.out.println("1. " + dialog.languageDanish());
+        System.out.println("2. " + dialog.languageEnglish());
+        System.out.println("3. " + dialog.exit());
+        System.out.print(dialog.userChoice());
 
         int choice = scanner.nextInt();
 
@@ -45,6 +46,8 @@ public class Menu
 
 
 
+
+    // TODO - I dont know wtf this dogshit is vvv
     private void printMenu()
     {
         System.out.println("1. Hent alle bøger");

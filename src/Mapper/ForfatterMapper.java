@@ -39,7 +39,6 @@ public class ForfatterMapper
             e.printStackTrace();
         }
 
-
         return forfatterList;
     }
 
@@ -64,8 +63,6 @@ public class ForfatterMapper
 
                 forfatter = new Forfatter(forfatterID, forfatterNavn);
             }
-
-
         }
         catch (SQLException e)
         {
@@ -74,7 +71,6 @@ public class ForfatterMapper
 
         return forfatter;
     }
-
 
     protected Forfatter registerAnAuthors(Forfatter forfatter)
     {
@@ -95,5 +91,4 @@ public class ForfatterMapper
         }
         return forfatter;
     }
-
 }

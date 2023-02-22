@@ -25,4 +25,34 @@ public class EngelskDialog extends Dialog
     {
         return "Press y to change language";
     }
+
+    @Override
+    public String chooseLanguage()
+    {
+        return "Choose a language: ";
+    }
+
+    @Override
+    public String userChoice()
+    {
+        return "Choice: ";
+    }
+
+    @Override
+    public String languageDanish()
+    {
+        return "Danish";
+    }
+
+    @Override
+    public String languageEnglish()
+    {
+        return "English";
+    }
+
+    @Override
+    public String exit()
+    {
+        return "Exit";
+    }
 }

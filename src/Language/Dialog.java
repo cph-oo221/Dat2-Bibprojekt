@@ -10,5 +10,11 @@ public abstract class Dialog
 
     public abstract String changeLanguage();
 
-
+    public abstract String chooseLanguage();
+    
+    public abstract String userChoice();
+    
+    public abstract String languageDanish();
+    public abstract String languageEnglish();
+    public abstract String exit();
 }

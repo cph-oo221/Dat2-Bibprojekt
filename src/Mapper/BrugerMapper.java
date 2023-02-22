@@ -10,8 +10,6 @@ import java.util.List;
 public class BrugerMapper
 {
 
-    // BRUGER - GET ALL & BY ID
-
     protected List<Bruger> getBruger()
     {
         PreparedStatement statement;
@@ -35,7 +33,6 @@ public class BrugerMapper
 
                 brugerList.add(bruger);
             }
-
         }
         catch (SQLException e)
         {
@@ -68,7 +65,6 @@ public class BrugerMapper
 
                 bruger = new Bruger(brugerID, navn, adresse, postnr);
             }
-
         }
         catch (SQLException e)
         {
@@ -140,7 +136,6 @@ public class BrugerMapper
         return bruger;
     }
 
-
     protected Bruger opretBruger(Bruger bruger)
     {
         try {
@@ -173,5 +168,4 @@ public class BrugerMapper
         }
         return bruger;
     }
-
 }
