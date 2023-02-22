@@ -15,7 +15,7 @@ import java.util.List;
 public class BogMapper
 {
     // BOG - GET ALL, BY ID & delete book.
-    public List<Bog> getBooks()
+    protected List<Bog> getBooks()
     {
         PreparedStatement statement;
         List<Bog> bogList = new ArrayList<>();
@@ -50,7 +50,7 @@ public class BogMapper
         return bogList;
     }
 
-    public Bog getBookByID(int bøgerID)
+    protected Bog getBookByID(int bøgerID)
     {
         PreparedStatement statement;
         Bog bog = null;
@@ -83,7 +83,7 @@ public class BogMapper
         return bog;
     }
 
-    public Bog deleteBook(int bøgerID)
+    protected Bog deleteBook(int bøgerID)
     {
         PreparedStatement statementDelete;
 
@@ -127,146 +127,42 @@ public class BogMapper
         return bog;
     }
 
-
-
-
-    // AUTHORS - GET ALL & BY ID
-    public List<Forfatter> getAllAuthors()
+    protected void registerBook(String titel, int forfatter)
     {
         PreparedStatement statement;
-        List<Forfatter> forfatterList = new ArrayList<>();
         try
         {
             Connection connection = ConnectionConfiguration.getConnection();
+            statement = connection.prepareStatement("insert into bibliotek.bøger (titel, forfatter) VALUES (?, ?)");
 
-            statement = connection.prepareStatement("select * from bibliotek.forfatter");
+            statement.setString(1, titel);
+            statement.setInt(2, forfatter);
 
-            ResultSet result = statement.executeQuery();
+            statement.executeUpdate();
 
-            while (result.next())
-            {
-                int idforfatter = result.getInt("idforfatter");
-                String forfatters = result.getString("forfatter");
+            System.out.println("Bog er nu registreret");
 
-                Forfatter forfatter = new Forfatter(idforfatter, forfatters);
-                forfatterList.add(forfatter);
-            }
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
+            System.out.println("Titel: " + titel + " Forfatter: " + forfatter);
 
-        for (Forfatter forfatter : forfatterList)
-        {
-            System.out.println(forfatter.toString());
-        }
 
-        return forfatterList;
-    }
 
-    public Forfatter getAuthorsByID(int forfatterID)
-    {
-        PreparedStatement statement;
-        Forfatter forfatter = null;
-
-        try
-        {
-            Connection connection = ConnectionConfiguration.getConnection();
-            statement = connection.prepareStatement("SELECT * from bibliotek.forfatter where idforfatter = ?");
-
-            statement.setInt(1, forfatterID);
-
-            ResultSet result = statement.executeQuery();
+            // cant use executeQuery() with insert statement
+            /*ResultSet result = statement.executeQuery();
 
             while (result.next())
             {
-                forfatterID = result.getInt("idforfatter");
-                String forfatterNavn = result.getString("forfatter");
-
-                forfatter = new Forfatter(forfatterID, forfatterNavn);
-            }
-
-
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-
-        return forfatter;
-    }
-
-
-    // UDLÅN - GET ALL & BY ID
-    public List<Udlån> getAllUdlån()
-    {
-        PreparedStatement statement;
-        List<Udlån> udlånList = new ArrayList<>();
-
-        try
-        {
-            Connection connection = ConnectionConfiguration.getConnection();
-
-            statement = connection.prepareStatement("select * from bibliotek.udlån");
-
-            ResultSet result = statement.executeQuery();
-
-            while (result.next())
-            {
-                int idudlån = result.getInt("idudlån");
                 int idbøger = result.getInt("idbøger");
-                int idlåner = result.getInt("idlåner");
+                titel = result.getString("titel");
+                forfatter = result.getInt("forfatter");
 
+                bog = new Bog(idbøger, titel, forfatter);
+            }*/
 
-                Udlån udlån = new Udlån(idudlån,idbøger,idlåner);
-
-                udlånList.add(udlån);
-            }
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
-
-        for (Udlån udlån : udlånList)
-        {
-            System.out.println(udlån.toString());
-        }
-
-        return udlånList;
-    }
-
-
-    public Udlån getUdlånByID(int udlånID)
-    {
-        PreparedStatement statement;
-        Udlån udlån = null;
-
-        try
-        {
-            Connection connection = ConnectionConfiguration.getConnection();
-            statement = connection.prepareStatement("SELECT * from bibliotek.udlån where idudlån = ?");
-
-            statement.setInt(1, udlånID);
-
-            ResultSet result = statement.executeQuery();
-
-            while (result.next())
-            {
-                udlånID = result.getInt("idudlån");
-                int idbøger = result.getInt("idbøger");
-                int idlåner = result.getInt("idlåner");
-
-                udlån = new Udlån(udlånID, idbøger, idlåner);
-            }
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-
-        return udlån;
     }
 
 }
