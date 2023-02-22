@@ -39,10 +39,6 @@ public class ForfatterMapper
             e.printStackTrace();
         }
 
-        for (Forfatter forfatter : forfatterList)
-        {
-            System.out.println(forfatter.toString());
-        }
 
         return forfatterList;
     }

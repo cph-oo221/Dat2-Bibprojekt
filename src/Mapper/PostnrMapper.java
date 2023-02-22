@@ -40,12 +40,6 @@ public class PostnrMapper
             e.printStackTrace();
         }
 
-        for (Postnr postnr : postnrList)
-        {
-            System.out.println(postnr);
-        }
-
-
         return postnrList;
     }
 

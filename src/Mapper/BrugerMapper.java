@@ -42,11 +42,6 @@ public class BrugerMapper
             e.printStackTrace();
         }
 
-        for (Bruger bruger : brugerList)
-        {
-            System.out.println(bruger.toString());
-        }
-
         return brugerList;
     }
 
