@@ -26,4 +26,11 @@ public class ForfatterFacade
 
         return forfatterMapper.registerAnAuthors(forfatter);
     }
+
+    public static Forfatter deleteForfatter(int forfatterID)
+    {
+        ForfatterMapper forfatterMapper = new ForfatterMapper();
+
+        return forfatterMapper.deleteAnAuthors(forfatterID);
+    }
 }

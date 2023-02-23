@@ -20,7 +20,6 @@ public class Menu
         selectLanguage();
         printMainMenu();
 
-
     }
 
     private void selectLanguage()
@@ -64,6 +63,7 @@ public class Menu
         {
             case 1:
                 // GET ALL BOOKS
+                // bookMenu();
                 getAllBooks();
 
                 break;
@@ -117,7 +117,7 @@ public class Menu
                 getAuthorByID();
                 break;
 
-            case 11: // TODO not done
+            case 11:
                 // DELETE AUTHOR BY ID
                 deleteAuthor();
 
@@ -187,10 +187,61 @@ public class Menu
                 clearScreen();
                 printMainMenu();
                 break;
-
         }
-
     }
+
+
+    private void bookMenu()
+    {
+        dialog.menuOptionsBook();
+        System.out.print(dialog.userChoice());
+        int choice = scanner.nextInt();
+
+        switch (choice)
+        {
+            case 1:
+                // GET ALL BOOKS
+                getAllBooks();
+
+                break;
+
+            case 2:
+                // GET BOOK BY ID
+                getBookByID();
+                break;
+
+            case 3:
+                // DELETE BOOK BY ID
+                deleteBookByID();
+
+                break;
+
+            case 4:
+                // REGISTER BOOK
+                registerBook();
+
+                break;
+
+            case 5:
+                // back to main menu
+
+                break;
+
+            case 6:
+                // EXIT
+                exit();
+                break;
+
+            default:
+                System.out.println(dialog.invalidChoice());
+                clearScreen();
+                bookMenu();
+                break;
+        }
+    }
+
+
+
 
     private void registerLoan()
     {
@@ -438,13 +489,10 @@ public class Menu
         System.out.println();
 
         int authorDeleteID = 0;
-        System.out.println(dialog.insertID());
+        System.out.print(dialog.insertID());
         authorDeleteID = scanner.nextInt();
 
-        // TODO - dont work rn has to make a method in ForfatterFacade and ForfatterMapper
-        // TODO ^^ that deletes an author.
-
-        // System.out.println(ForfatterFacade.sletForfatter(authorDeleteID));
+        System.out.println(ForfatterFacade.deleteForfatter(authorDeleteID));
 
         continueMenu();
     }
@@ -480,16 +528,7 @@ public class Menu
         System.out.println(PostnrFacade.hentPostnrByID(zipcodeID));
 
         continueMenu();
-
     }
-
-
-
-
-
-
-
-
 
 
     private void printAllLoans()
@@ -523,14 +562,11 @@ public class Menu
         }
     }
 
-
     private void exit()
     {
         System.out.println(dialog.exitMessage());
         System.exit(0);
     }
-
-
 
     private void printAllBooks()
     {

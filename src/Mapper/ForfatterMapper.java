@@ -91,4 +91,38 @@ public class ForfatterMapper
         }
         return forfatter;
     }
+
+    public Forfatter deleteAnAuthors(int forfatterID)
+    {
+        PreparedStatement statementDelete;
+        PreparedStatement statementSelect;
+        Forfatter forfatter = null;
+
+        try
+        {
+            Connection connection = ConnectionConfiguration.getConnection();
+            statementSelect = connection.prepareStatement("SELECT * from bibliotek.forfatter where idforfatter = ?");
+            statementDelete = connection.prepareStatement("DELETE from bibliotek.forfatter where idforfatter = ?");
+
+            statementSelect.setInt(1, forfatterID);
+            ResultSet resultSet = statementSelect.executeQuery();
+
+            while (resultSet.next())
+            {
+                forfatterID = resultSet.getInt("idforfatter");
+                String forfatterNavn = resultSet.getString("forfatter");
+
+                forfatter = new Forfatter(forfatterID, forfatterNavn);
+            }
+
+            statementDelete.setInt(1, forfatterID);
+            statementDelete.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return forfatter;
+    }
 }
