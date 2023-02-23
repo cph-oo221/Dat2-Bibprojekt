@@ -11,7 +11,7 @@ public class DanskDialog extends Dialog
     @Override
     public String welcome()
     {
-        return "Velkommen!";
+        return "Velkommen til bibliotek!";
     }
 
     @Override
@@ -19,10 +19,6 @@ public class DanskDialog extends Dialog
     {
         return "Hvor gammel er du?";
     }
-
-
-
-
 
     @Override
     public String changeLanguage()
@@ -43,13 +39,13 @@ public class DanskDialog extends Dialog
     }
 
     @Override
-    public String languageDanish()
+    public String languageOpsDanish()
     {
         return "Dansk";
     }
 
     @Override
-    public String languageEnglish()
+    public String languageOpsEnglish()
     {
         return "Engelsk";
     }
@@ -58,5 +54,78 @@ public class DanskDialog extends Dialog
     public String exit()
     {
         return "Afslut";
+    }
+
+    @Override
+    public String exitMessage()
+    {
+        return "Programmet afsluttes...";
+    }
+
+    @Override
+    public void menuOptions()
+    {
+        System.out.println("1. Hent alle bøger");
+        System.out.println("2. Hent bog på ID");
+        System.out.println("3. Slet bog på ID");
+        System.out.println("4. Opret bog");
+
+        System.out.println("5. Hent alle brugere");
+        System.out.println("6. Hent bruger på ID");
+        System.out.println("7. Slet bruger på ID");
+        System.out.println("8. Opret bruger");
+
+        System.out.println("9. Hent alle forfattere");
+        System.out.println("10. Hent forfatter på ID");
+        System.out.println("11. Slet forfatter på ID");
+        System.out.println("12. Opret forfatter");
+
+        System.out.println("13. Hent alle lån");
+        System.out.println("14. Hent lån på ID");
+        System.out.println("15. Slet lån på ID");
+        System.out.println("16. Opret lån");
+
+        System.out.println("17. Hent alle postnumre");
+        System.out.println("18. Hent postnummer på ID");
+        System.out.println("19. Slet postnummer på ID");
+        System.out.println("20. Opret postnummer");
+
+        System.out.println("21. Afslut");
+    }
+
+    @Override
+    public String menuContinue()
+    {
+        return "Tryk enter for at fortsætte";
+    }
+
+    @Override
+    public String invalidChoice()
+    {
+        return "Ugyldigt valg";
+    }
+
+    @Override
+    public String insertID()
+    {
+        return "Indtast ID: ";
+    }
+
+    @Override
+    public String insertTitle()
+    {
+        return "Indtast titel: ";
+    }
+
+    @Override
+    public String insertAuthor()
+    {
+        return "Indtast forfatter Id: ";
+    }
+
+    @Override
+    public String authorList()
+    {
+        return "Forfatter liste: ";
     }
 }

@@ -11,7 +11,7 @@ public class EngelskDialog extends Dialog
     @Override
     public String welcome()
     {
-        return "Welcome!";
+        return "Welcome to the library!";
     }
 
     @Override
@@ -39,13 +39,13 @@ public class EngelskDialog extends Dialog
     }
 
     @Override
-    public String languageDanish()
+    public String languageOpsDanish()
     {
         return "Danish";
     }
 
     @Override
-    public String languageEnglish()
+    public String languageOpsEnglish()
     {
         return "English";
     }
@@ -54,5 +54,78 @@ public class EngelskDialog extends Dialog
     public String exit()
     {
         return "Exit";
+    }
+
+    @Override
+    public String exitMessage()
+    {
+        return "The program is shutting down...";
+    }
+
+    @Override
+    public void menuOptions()
+    {
+        System.out.println("1. Get all books");
+        System.out.println("2. Get book by ID");
+        System.out.println("3. Delete book by ID");
+        System.out.println("4. Register book");
+
+        System.out.println("5. Get all Users");
+        System.out.println("6. Get User by ID");
+        System.out.println("7. Delete User by ID");
+        System.out.println("8. Register User");
+
+        System.out.println("9. Get all Authors");
+        System.out.println("10. Get Author by ID");
+        System.out.println("11. Delete Author by ID");
+        System.out.println("12. Register Author");
+
+        System.out.println("13. Get all Loans");
+        System.out.println("14. Get Loan by ID");
+        System.out.println("15. Delete Loan by ID");
+        System.out.println("16. Register Loan");
+
+        System.out.println("17. Get all Zipcodes");
+        System.out.println("18. Get Zipcode by ID");
+        System.out.println("19. Delete Zipcode by ID");
+        System.out.println("20. Register Zipcode");
+
+        System.out.println("21. Exit");
+    }
+
+    @Override
+    public String menuContinue()
+    {
+        return "Press enter to continue";
+    }
+
+    @Override
+    public String invalidChoice()
+    {
+        return "Invalid choice";
+    }
+
+    @Override
+    public String insertID()
+    {
+        return "Insert ID: ";
+    }
+
+    @Override
+    public String insertTitle()
+    {
+        return "Insert title: ";
+    }
+
+    @Override
+    public String insertAuthor()
+    {
+        return "Insert author ID: ";
+    }
+
+    @Override
+    public String authorList()
+    {
+        return "Author list: ";
     }
 }

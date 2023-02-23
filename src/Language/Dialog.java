@@ -14,7 +14,21 @@ public abstract class Dialog
     
     public abstract String userChoice();
     
-    public abstract String languageDanish();
-    public abstract String languageEnglish();
+    public abstract String languageOpsDanish();
+    public abstract String languageOpsEnglish();
     public abstract String exit();
+    public abstract String exitMessage();
+
+    public abstract void menuOptions();
+
+    public abstract String menuContinue();
+
+    public abstract String invalidChoice();
+    public abstract String insertID();
+
+    public abstract String insertTitle();
+    public abstract String insertAuthor();
+
+    public abstract String authorList();
+
 }
