@@ -64,292 +64,117 @@ public class Menu
         {
             case 1:
                 // GET ALL BOOKS
-                clearScreen();
-                printAllBooks();
-                continueMenu();
+                getAllBooks();
 
                 break;
 
             case 2:
                 // GET BOOK BY ID
-                clearScreen();
-                printAllBooks();
-                System.out.println();
-
-                int bookID = 0;
-                System.out.println(dialog.insertID());
-                bookID = scanner.nextInt();
-
-                System.out.println(BogFacade.hentBogByID(bookID));
-
-                continueMenu();
+                getBookByID();
                 break;
 
             case 3:
                 // DELETE BOOK BY ID
-                clearScreen();
-                printAllBooks();
-                System.out.println();
+                deleteBookByID();
 
-                int bookDeleteID = 0;
-                System.out.println(dialog.insertID());
-                bookDeleteID = scanner.nextInt();
-
-                System.out.println(BogFacade.sletBog(bookDeleteID));
-
-                continueMenu();
                 break;
 
             case 4:
                 // REGISTER BOOK
-                clearScreen();
+                registerBook();
 
-                System.out.print(dialog.insertTitle());
-                String title = scanner.next();
-
-                System.out.println();
-
-                System.out.println(dialog.authorList());
-                printAllAuthors();
-
-                System.out.println();
-
-                System.out.println(dialog.insertAuthor());
-                int forfatter = scanner.nextInt();
-
-                System.out.println(BogFacade.registrerBog(new Bog(title, forfatter)));
-
-                continueMenu();
                 break;
 
             case 5:
                 // GET ALL USERS
-                clearScreen();
-                printAllUsers();
-                continueMenu();
+                getAllUsers();
 
                 break;
 
             case 6:
                 // GET USER BY ID
-                clearScreen();
-                printAllUsers();
-                System.out.println();
-
-                int userID = 0;
-                System.out.println(dialog.insertID());
-                userID = scanner.nextInt();
-                System.out.println(BrugerFacade.hentBrugerByID(userID));
-
-                continueMenu();
+                getUserByID();
                 break;
 
             case 7:
                 // DELETE USER BY ID
-                clearScreen();
-                printAllUsers();
-                System.out.println();
-
-                int userDeleteID = 0;
-                System.out.println(dialog.insertID());
-                userDeleteID = scanner.nextInt();
-
-                System.out.println(BrugerFacade.seltBruger(userDeleteID));
-
-                continueMenu();
+                deleteUser();
 
                 break;
 
             case 8:
                 // REGISTER USER
-                clearScreen();
-                System.out.print(dialog.insertName());
-                String name = scanner.next();
-                System.out.println();
-                System.out.print(dialog.insertAdresse());
-                String adresse = scanner.next();
-
-                System.out.println();
-
-                // TODO - dont work mabye fix later
-                /*System.out.println(dialog.zipcodeList());
-                printAllZipcodes();*/
-
-                System.out.println();
-
-                System.out.print(dialog.insertZipcode());
-                int zipcode = scanner.nextInt();
-
-                System.out.println(BrugerFacade.registrerBruger(new Bruger(name, adresse, zipcode)));
-
-                continueMenu();
+                registerUser();
                 break;
 
             case 9:
                 // GET ALL AUTHORS
-                clearScreen();
-                printAllAuthors();
-                continueMenu();
-
+                getAllAuthors();
                 break;
 
             case 10:
                 // GET AUTHOR BY ID
-                clearScreen();
-                printAllAuthors();
-                System.out.println();
-
-                int authorID = 0;
-                System.out.println(dialog.insertID());
-                authorID = scanner.nextInt();
-                System.out.println(ForfatterFacade.hentForfatterByID(authorID));
-
-                continueMenu();
+                getAuthorByID();
                 break;
 
             case 11: // TODO not done
                 // DELETE AUTHOR BY ID
-                clearScreen();
-                printAllAuthors();
-                System.out.println();
-
-                int authorDeleteID = 0;
-                System.out.println(dialog.insertID());
-                authorDeleteID = scanner.nextInt();
-
-                // TODO - dont work rn has to make a method in ForfatterFacade and ForfatterMapper
-                // TODO ^^ that deletes an author.
-
-                // System.out.println(ForfatterFacade.sletForfatter(authorDeleteID));
-
-                continueMenu();
+                deleteAuthor();
 
                 break;
 
             case 12:
                 // REGISTER AUTHOR
-                clearScreen();
-                System.out.print(dialog.insertName());
-                String authorName = scanner.next();
-                System.out.println();
-
-                System.out.println(ForfatterFacade.registrerForfatter(new Forfatter(authorName)));
+                registerAuthor();
 
                 break;
 
             case 13:
                 // GET ALL ZIPCODES
-                clearScreen();
-                printAllZipcodes();
-                continueMenu();
+                getAllZipCodes();
 
                 break;
 
             case 14:
                 // GET ZIPCODE BY ID
-                clearScreen();
-                printAllZipcodes();
-                System.out.println();
+                getZipCodeByID();
 
-                int zipcodeID = 0;
-                System.out.print(dialog.insertID());
-                zipcodeID = scanner.nextInt();
-                System.out.println(PostnrFacade.hentPostnrByID(zipcodeID));
-
-                continueMenu();
                 break;
 
             case 15:
                 // DELETE ZIPCODE BY ID
-                clearScreen();
-                printAllZipcodes();
-                System.out.println();
-
-                int zipcodeDeleteID = 0;
-                System.out.print(dialog.insertID());
-                zipcodeDeleteID = scanner.nextInt();
-
-                System.out.println(PostnrFacade.deletePostnr(zipcodeDeleteID));
-
-                continueMenu();
+                deleteZipCodeByID();
 
                 break;
 
             case 16:
                 // REGISTER ZIPCODE
-                clearScreen();
-                System.out.print(dialog.insertZipcode());
-                int newZipcode = scanner.nextInt();
-                System.out.println();
+                registerZipCode();
 
-                System.out.print(dialog.insertCity());
-                String city = scanner.next();
-                System.out.println();
-
-                System.out.println(PostnrFacade.registrerPostnr(new Postnr(newZipcode, city)));
-
-                continueMenu();
                 break;
 
             case 17:
                 // GET ALL LOANS
-                clearScreen();
-                printAllLoans();
-                continueMenu();
+                getAllLoans();
 
                 break;
 
             case 18:
                 // GET LOAN BY ID
-                clearScreen();
-                printAllLoans();
-                System.out.println();
+                getLoanByID();
 
-                int loanID = 0;
-                System.out.print(dialog.insertID());
-                loanID = scanner.nextInt();
-                System.out.println(UdlånFacade.hentUdlånByID(loanID));
-
-                continueMenu();
                 break;
 
             case 19:
                 // DELETE LOAN BY ID
-                clearScreen();
-                printAllLoans();
-                System.out.println();
-
-                int loanDeleteID = 0;
-                System.out.print(dialog.insertID());
-                loanDeleteID = scanner.nextInt();
-
-                System.out.println(UdlånFacade.seltUdlån(loanDeleteID));
-
-                continueMenu();
+                deleteLoan();
 
                 break;
 
             case 20:
                 // REGISTER LOAN
-                clearScreen();
-                System.out.println(dialog.booksList());
-                printAllBooks();
-
-                System.out.println();
-                System.out.println(dialog.usersList());
-                printAllUsers();
-
-                System.out.println();
-                System.out.print(dialog.insertBookId());
-                int booksID2 = scanner.nextInt();
-                System.out.println();
-                System.out.print(dialog.insertUserID());
-                int userID2 = scanner.nextInt();
-
-
-                System.out.println(UdlånFacade.registrerUdlån(new Udlån(booksID2, userID2)));
-
-                continueMenu();
+                registerLoan();
+                
                 break;
 
 
@@ -367,6 +192,296 @@ public class Menu
 
     }
 
+    private void registerLoan()
+    {
+        clearScreen();
+        System.out.println(dialog.booksList());
+        printAllBooks();
+
+        System.out.println();
+        System.out.println(dialog.usersList());
+        printAllUsers();
+
+        System.out.println();
+        System.out.print(dialog.insertBookId());
+        int booksID2 = scanner.nextInt();
+        System.out.println();
+        System.out.print(dialog.insertUserID());
+        int userID2 = scanner.nextInt();
+
+
+        System.out.println(UdlånFacade.registrerUdlån(new Udlån(booksID2, userID2)));
+
+        continueMenu();
+    }
+
+    private void deleteLoan()
+    {
+        clearScreen();
+        printAllLoans();
+        System.out.println();
+
+        int loanDeleteID = 0;
+        System.out.print(dialog.insertID());
+        loanDeleteID = scanner.nextInt();
+
+        System.out.println(UdlånFacade.seltUdlån(loanDeleteID));
+
+        continueMenu();
+    }
+
+    private void getLoanByID()
+    {
+        clearScreen();
+        printAllLoans();
+        System.out.println();
+
+        int loanID = 0;
+        System.out.print(dialog.insertID());
+        loanID = scanner.nextInt();
+        System.out.println(UdlånFacade.hentUdlånByID(loanID));
+
+        continueMenu();
+    }
+
+    private void getAllLoans()
+    {
+        clearScreen();
+        printAllLoans();
+        continueMenu();
+    }
+
+    private void registerZipCode()
+    {
+        clearScreen();
+        System.out.print(dialog.insertZipcode());
+        int newZipcode = scanner.nextInt();
+        System.out.println();
+
+        System.out.print(dialog.insertCity());
+        String city = scanner.next();
+        System.out.println();
+
+        System.out.println(PostnrFacade.registrerPostnr(new Postnr(newZipcode, city)));
+
+        continueMenu();
+    }
+
+    private void deleteZipCodeByID()
+    {
+        clearScreen();
+        printAllZipcodes();
+        System.out.println();
+
+        int zipcodeDeleteID = 0;
+        System.out.print(dialog.insertID());
+        zipcodeDeleteID = scanner.nextInt();
+
+        System.out.println(PostnrFacade.deletePostnr(zipcodeDeleteID));
+
+        continueMenu();
+    }
+
+    // GET ALL BOOKS
+    private void getAllBooks()
+    {
+        clearScreen();
+        printAllBooks();
+        continueMenu();
+    }
+
+    // GET BOOK BY ID
+    private void getBookByID()
+    {
+        clearScreen();
+        printAllBooks();
+        System.out.println();
+
+        int bookID = 0;
+        System.out.println(dialog.insertID());
+        bookID = scanner.nextInt();
+
+        System.out.println(BogFacade.hentBogByID(bookID));
+
+        continueMenu();
+    }
+    private void deleteBookByID()
+    {
+        clearScreen();
+        printAllBooks();
+        System.out.println();
+
+        int bookDeleteID = 0;
+        System.out.println(dialog.insertID());
+        bookDeleteID = scanner.nextInt();
+
+        System.out.println(BogFacade.sletBog(bookDeleteID));
+
+        continueMenu();
+    }
+
+    private void registerBook()
+    {
+        // REGISTER BOOK
+        clearScreen();
+
+        System.out.print(dialog.insertTitle());
+        String title = scanner.next();
+
+        System.out.println();
+
+        System.out.println(dialog.authorList());
+        printAllAuthors();
+
+        System.out.println();
+
+        System.out.println(dialog.insertAuthor());
+        int forfatter = scanner.nextInt();
+
+        System.out.println(BogFacade.registrerBog(new Bog(title, forfatter)));
+
+        continueMenu();
+    }
+
+
+    private void getAllUsers()
+    {
+        // GET ALL USERS
+        clearScreen();
+        printAllUsers();
+        continueMenu();
+    }
+
+    private void getUserByID()
+    {
+        clearScreen();
+        printAllUsers();
+        System.out.println();
+
+        int userID = 0;
+        System.out.println(dialog.insertID());
+        userID = scanner.nextInt();
+        System.out.println(BrugerFacade.hentBrugerByID(userID));
+
+        continueMenu();
+    }
+
+    private void deleteUser()
+    {
+        // DELETE USER BY ID
+        clearScreen();
+        printAllUsers();
+        System.out.println();
+
+        int userDeleteID = 0;
+        System.out.println(dialog.insertID());
+        userDeleteID = scanner.nextInt();
+
+        System.out.println(BrugerFacade.seltBruger(userDeleteID));
+
+        continueMenu();
+    }
+
+    private void registerUser()
+    {
+        // REGISTER USER
+        clearScreen();
+        System.out.print(dialog.insertName());
+        String name = scanner.next();
+        System.out.println();
+        System.out.print(dialog.insertAdresse());
+        String adresse = scanner.next();
+
+        System.out.println();
+
+        // TODO - dont work mabye fix later
+                /*System.out.println(dialog.zipcodeList());
+                printAllZipcodes();*/
+
+        System.out.println();
+
+        System.out.print(dialog.insertZipcode());
+        int zipcode = scanner.nextInt();
+
+        System.out.println(BrugerFacade.registrerBruger(new Bruger(name, adresse, zipcode)));
+
+        continueMenu();
+    }
+
+
+    private void getAllAuthors()
+    {
+        // GET ALL AUTHORS
+        clearScreen();
+        printAllAuthors();
+        continueMenu();
+    }
+
+    private void getAuthorByID()
+    {
+        clearScreen();
+        printAllAuthors();
+        System.out.println();
+
+        int authorID = 0;
+        System.out.println(dialog.insertID());
+        authorID = scanner.nextInt();
+        System.out.println(ForfatterFacade.hentForfatterByID(authorID));
+
+        continueMenu();
+    }
+
+    private void deleteAuthor()
+    {
+        clearScreen();
+        printAllAuthors();
+        System.out.println();
+
+        int authorDeleteID = 0;
+        System.out.println(dialog.insertID());
+        authorDeleteID = scanner.nextInt();
+
+        // TODO - dont work rn has to make a method in ForfatterFacade and ForfatterMapper
+        // TODO ^^ that deletes an author.
+
+        // System.out.println(ForfatterFacade.sletForfatter(authorDeleteID));
+
+        continueMenu();
+    }
+
+    private void registerAuthor()
+    {
+        clearScreen();
+        System.out.print(dialog.insertName());
+        String authorName = scanner.next();
+        System.out.println();
+
+        System.out.println(ForfatterFacade.registrerForfatter(new Forfatter(authorName)));
+    }
+
+
+    private void getAllZipCodes()
+    {
+        // GET ALL ZIPCODES
+        clearScreen();
+        printAllZipcodes();
+        continueMenu();
+    }
+
+    private void getZipCodeByID()
+    {
+        clearScreen();
+        printAllZipcodes();
+        System.out.println();
+
+        int zipcodeID = 0;
+        System.out.print(dialog.insertID());
+        zipcodeID = scanner.nextInt();
+        System.out.println(PostnrFacade.hentPostnrByID(zipcodeID));
+
+        continueMenu();
+
+    }
 
 
 
@@ -376,7 +491,7 @@ public class Menu
 
 
 
-    
+
     private void printAllLoans()
     {
         List<Udlån> udlånList = UdlånFacade.hentUdlån();
