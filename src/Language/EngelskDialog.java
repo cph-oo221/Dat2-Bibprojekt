@@ -94,6 +94,56 @@ public class EngelskDialog extends Dialog
     }
 
     @Override
+    public void menuOptionsBook()
+    {
+        System.out.println("1. Get all books");
+        System.out.println("2. Get book by ID");
+        System.out.println("3. Delete book by ID");
+        System.out.println("4. Register book");
+        System.out.println("5. Back to main menu");
+    }
+
+    @Override
+    public void menuOptionsUser()
+    {
+        System.out.println("1. Get all Users");
+        System.out.println("2. Get User by ID");
+        System.out.println("3. Delete User by ID");
+        System.out.println("4. Register User");
+        System.out.println("5. Back to main menu");
+    }
+
+    @Override
+    public void menuOptionsLoan()
+    {
+        System.out.println("1. Get all Loans");
+        System.out.println("2. Get Loan by ID");
+        System.out.println("3. Delete Loan by ID");
+        System.out.println("4. Register Loan");
+        System.out.println("5. Back to main menu");
+    }
+
+    @Override
+    public void menuOptionsAuthor()
+    {
+        System.out.println("1. Get all Authors");
+        System.out.println("2. Get Author by ID");
+        System.out.println("3. Delete Author by ID");
+        System.out.println("4. Register Author");
+        System.out.println("5. Back to main menu");
+    }
+
+    @Override
+    public void menuOptionsZipcode()
+    {
+        System.out.println("1. Get all Zipcodes");
+        System.out.println("2. Get Zipcode by ID");
+        System.out.println("3. Delete Zipcode by ID");
+        System.out.println("4. Register Zipcode");
+        System.out.println("5. Back to main menu");
+    }
+
+    @Override
     public String menuContinue()
     {
         return "Press enter to continue";

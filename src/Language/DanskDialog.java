@@ -95,6 +95,57 @@ public class DanskDialog extends Dialog
     }
 
     @Override
+    public void menuOptionsBook()
+    {
+        System.out.println("1. Hent alle bøger");
+        System.out.println("2. Hent bog på ID");
+        System.out.println("3. Slet bog på ID");
+        System.out.println("4. Opret bog");
+        System.out.println("5. Tilbage");
+    }
+
+    @Override
+    public void menuOptionsUser()
+    {
+        System.out.println("1. Hent alle brugere");
+        System.out.println("2. Hent bruger på ID");
+        System.out.println("3. Slet bruger på ID");
+        System.out.println("4. Opret bruger");
+        System.out.println("5. Tilbage");
+    }
+
+
+    @Override
+    public void menuOptionsAuthor()
+    {
+        System.out.println("1. Hent alle forfattere");
+        System.out.println("2. Hent forfatter på ID");
+        System.out.println("3. Slet forfatter på ID");
+        System.out.println("4. Opret forfatter");
+        System.out.println("5. Tilbage");
+    }
+
+    @Override
+    public void menuOptionsLoan()
+    {
+        System.out.println("1. Hent alle lån");
+        System.out.println("2. Hent lån på ID");
+        System.out.println("3. Slet lån på ID");
+        System.out.println("4. Opret lån");
+        System.out.println("5. Tilbage");
+    }
+
+    @Override
+    public void menuOptionsZipcode()
+    {
+        System.out.println("1. Hent alle postnumre");
+        System.out.println("2. Hent postnummer på ID");
+        System.out.println("3. Slet postnummer på ID");
+        System.out.println("4. Opret postnummer");
+        System.out.println("5. Tilbage");
+    }
+
+    @Override
     public String menuContinue()
     {
         return "Tryk enter for at fortsætte";

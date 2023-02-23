@@ -18,7 +18,7 @@ public class Menu
     {
         dialog = new EngelskDialog();
         selectLanguage();
-        printMenu();
+        printMainMenu();
 
 
     }
@@ -53,7 +53,7 @@ public class Menu
 
 
 
-    private void printMenu()
+    private void printMainMenu()
     {
         System.out.println(dialog.welcome());
         dialog.menuOptions();
@@ -174,7 +174,7 @@ public class Menu
             case 20:
                 // REGISTER LOAN
                 registerLoan();
-                
+
                 break;
 
 
@@ -185,7 +185,7 @@ public class Menu
             default:
                 System.out.println(dialog.invalidChoice());
                 clearScreen();
-                printMenu();
+                printMainMenu();
                 break;
 
         }
@@ -511,7 +511,7 @@ public class Menu
         scanner.nextLine();
         scanner.nextLine();
         clearScreen();
-        printMenu();
+        printMainMenu();
     }
 
 
@@ -524,13 +524,11 @@ public class Menu
     }
 
 
-
     private void exit()
     {
         System.out.println(dialog.exitMessage());
         System.exit(0);
     }
-
 
 
 

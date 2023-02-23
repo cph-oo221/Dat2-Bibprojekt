@@ -21,6 +21,13 @@ public abstract class Dialog
 
     public abstract void menuOptions();
 
+    public abstract void menuOptionsBook();
+    public abstract void menuOptionsUser();
+    public abstract void menuOptionsLoan();
+    public abstract void menuOptionsAuthor();
+    public abstract void menuOptionsZipcode();
+
+
     public abstract String menuContinue();
 
     public abstract String invalidChoice();
