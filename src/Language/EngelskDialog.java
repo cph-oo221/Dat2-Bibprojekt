@@ -89,7 +89,7 @@ public class EngelskDialog extends Dialog
         System.out.println("18. Get Loan by ID");
         System.out.println("19. Delete Loan by ID");
         System.out.println("20. Register Loan");
-        
+
         System.out.println("21. Exit");
     }
 
@@ -109,6 +109,18 @@ public class EngelskDialog extends Dialog
     public String insertID()
     {
         return "Insert ID: ";
+    }
+
+    @Override
+    public String insertBookId()
+    {
+        return "Insert book ID: ";
+    }
+
+    @Override
+    public String insertUserID()
+    {
+        return "Insert user ID: ";
     }
 
     @Override
@@ -151,5 +163,23 @@ public class EngelskDialog extends Dialog
     public String zipcodeList()
     {
         return "Zipcode list: ";
+    }
+
+    @Override
+    public String insertCity()
+    {
+        return "Insert city: ";
+    }
+
+    @Override
+    public String booksList()
+    {
+        return "Book list: ";
+    }
+
+    @Override
+    public String usersList()
+    {
+        return "User list: ";
     }
 }

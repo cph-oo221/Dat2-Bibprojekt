@@ -95,4 +95,43 @@ public class UdlaanMapper
         }
         return udlån;
     }
+
+    public Udlån sletUdlån(int udlånID)
+    {
+        PreparedStatement statementDelete;
+        PreparedStatement statementSelect;
+
+        Udlån udlån = null;
+        try
+        {
+            Connection connection = ConnectionConfiguration.getConnection();
+
+            statementDelete = connection.prepareStatement("delete from bibliotek.udlån where idudlån = ?");
+
+            statementSelect = connection.prepareStatement("select * from bibliotek.udlån where idudlån = ?");
+
+            statementSelect.setInt(1, udlånID);
+
+            ResultSet result = statementSelect.executeQuery();
+
+            while (result.next())
+            {
+                int idudlån = result.getInt("idudlån");
+                int idbøger = result.getInt("idbøger");
+                int idlåner = result.getInt("idlåner");
+
+                udlån = new Udlån(idudlån, idbøger, idlåner);
+            }
+
+            statementDelete.setInt(1, udlånID);
+            statementDelete.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return udlån;
+    }
 }

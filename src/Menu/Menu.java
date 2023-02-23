@@ -1,16 +1,10 @@
 package Menu;
 
-import Entities.Bog;
-import Entities.Bruger;
-import Entities.Forfatter;
-import Entities.Postnr;
+import Entities.*;
 import Language.DanskDialog;
 import Language.Dialog;
 import Language.EngelskDialog;
-import Mapper.BogFacade;
-import Mapper.BrugerFacade;
-import Mapper.ForfatterFacade;
-import Mapper.PostnrFacade;
+import Mapper.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -281,6 +275,84 @@ public class Menu
 
                 break;
 
+            case 16:
+                // REGISTER ZIPCODE
+                clearScreen();
+                System.out.print(dialog.insertZipcode());
+                int newZipcode = scanner.nextInt();
+                System.out.println();
+
+                System.out.print(dialog.insertCity());
+                String city = scanner.next();
+                System.out.println();
+
+                System.out.println(PostnrFacade.registrerPostnr(new Postnr(newZipcode, city)));
+
+                continueMenu();
+                break;
+
+            case 17:
+                // GET ALL LOANS
+                clearScreen();
+                printAllLoans();
+                continueMenu();
+
+                break;
+
+            case 18:
+                // GET LOAN BY ID
+                clearScreen();
+                printAllLoans();
+                System.out.println();
+
+                int loanID = 0;
+                System.out.print(dialog.insertID());
+                loanID = scanner.nextInt();
+                System.out.println(UdlånFacade.hentUdlånByID(loanID));
+
+                continueMenu();
+                break;
+
+            case 19:
+                // DELETE LOAN BY ID
+                clearScreen();
+                printAllLoans();
+                System.out.println();
+
+                int loanDeleteID = 0;
+                System.out.print(dialog.insertID());
+                loanDeleteID = scanner.nextInt();
+
+                System.out.println(UdlånFacade.seltUdlån(loanDeleteID));
+
+                continueMenu();
+
+                break;
+
+            case 20:
+                // REGISTER LOAN
+                clearScreen();
+                System.out.println(dialog.booksList());
+                printAllBooks();
+
+                System.out.println();
+                System.out.println(dialog.usersList());
+                printAllUsers();
+
+                System.out.println();
+                System.out.print(dialog.insertBookId());
+                int booksID2 = scanner.nextInt();
+                System.out.println();
+                System.out.print(dialog.insertUserID());
+                int userID2 = scanner.nextInt();
+
+
+                System.out.println(UdlånFacade.registrerUdlån(new Udlån(booksID2, userID2)));
+
+                continueMenu();
+                break;
+
+
             case 21:
                 exit();
                 break;
@@ -293,6 +365,25 @@ public class Menu
 
         }
 
+    }
+
+
+
+
+
+
+
+
+
+
+    
+    private void printAllLoans()
+    {
+        List<Udlån> udlånList = UdlånFacade.hentUdlån();
+        for (Udlån udlån : udlånList)
+        {
+            System.out.println(udlån);
+        }
     }
 
 
@@ -317,11 +408,16 @@ public class Menu
         }
     }
 
+
+
     private void exit()
     {
         System.out.println(dialog.exitMessage());
         System.exit(0);
     }
+
+
+
 
     private void printAllBooks()
     {

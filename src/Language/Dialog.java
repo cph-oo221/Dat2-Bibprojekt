@@ -26,6 +26,9 @@ public abstract class Dialog
     public abstract String invalidChoice();
     public abstract String insertID();
 
+    public abstract String insertBookId();
+    public abstract String insertUserID();
+
     public abstract String insertTitle();
     public abstract String insertAuthor();
 
@@ -38,4 +41,10 @@ public abstract class Dialog
     public abstract String insertZipcode();
 
     public abstract String zipcodeList();
+
+    public abstract String insertCity();
+
+    public abstract String booksList();
+
+    public abstract String usersList();
 }

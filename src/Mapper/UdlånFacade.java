@@ -26,4 +26,11 @@ public class UdlånFacade
 
         return udlaanMapper.registerUdlån(udlån);
     }
+
+    public static Udlån seltUdlån(int udlånID)
+    {
+        UdlaanMapper udlaanMapper = new UdlaanMapper();
+
+        return udlaanMapper.sletUdlån(udlånID);
+    }
 }

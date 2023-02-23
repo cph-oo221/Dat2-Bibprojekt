@@ -113,6 +113,18 @@ public class DanskDialog extends Dialog
     }
 
     @Override
+    public String insertBookId()
+    {
+        return "Indtast bog ID: ";
+    }
+
+    @Override
+    public String insertUserID()
+    {
+        return "Indtast bruger ID: ";
+    }
+
+    @Override
     public String insertTitle()
     {
         return "Indtast titel: ";
@@ -152,5 +164,23 @@ public class DanskDialog extends Dialog
     public String zipcodeList()
     {
         return "Postnummer liste: ";
+    }
+
+    @Override
+    public String insertCity()
+    {
+        return "Indtast by: ";
+    }
+
+    @Override
+    public String booksList()
+    {
+        return "Bog liste: ";
+    }
+
+    @Override
+    public String usersList()
+    {
+        return "Bruger liste: ";
     }
 }
