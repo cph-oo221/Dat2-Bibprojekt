@@ -3,12 +3,14 @@ package Menu;
 import Entities.Bog;
 import Entities.Bruger;
 import Entities.Forfatter;
+import Entities.Postnr;
 import Language.DanskDialog;
 import Language.Dialog;
 import Language.EngelskDialog;
 import Mapper.BogFacade;
 import Mapper.BrugerFacade;
 import Mapper.ForfatterFacade;
+import Mapper.PostnrFacade;
 
 import java.util.List;
 import java.util.Scanner;
@@ -70,8 +72,8 @@ public class Menu
                 // GET ALL BOOKS
                 clearScreen();
                 printAllBooks();
-
                 continueMenu();
+
                 break;
 
             case 2:
@@ -80,11 +82,11 @@ public class Menu
                 printAllBooks();
                 System.out.println();
 
-                int id = 0;
+                int bookID = 0;
                 System.out.println(dialog.insertID());
-                id = scanner.nextInt();
+                bookID = scanner.nextInt();
 
-                System.out.println(BogFacade.hentBogByID(id));
+                System.out.println(BogFacade.hentBogByID(bookID));
 
                 continueMenu();
                 break;
@@ -95,11 +97,11 @@ public class Menu
                 printAllBooks();
                 System.out.println();
 
-                int id2 = 0;
+                int bookDeleteID = 0;
                 System.out.println(dialog.insertID());
-                id2 = scanner.nextInt();
+                bookDeleteID = scanner.nextInt();
 
-                System.out.println(BogFacade.sletBog(id2));
+                System.out.println(BogFacade.sletBog(bookDeleteID));
 
                 continueMenu();
                 break;
@@ -127,18 +129,160 @@ public class Menu
                 break;
 
             case 5:
-                // TODO - Get all books by year
+                // GET ALL USERS
+                clearScreen();
+                printAllUsers();
+                continueMenu();
+
                 break;
+
             case 6:
-                // TODO - Get all books by publisher
+                // GET USER BY ID
+                clearScreen();
+                printAllUsers();
+                System.out.println();
+
+                int userID = 0;
+                System.out.println(dialog.insertID());
+                userID = scanner.nextInt();
+                System.out.println(BrugerFacade.hentBrugerByID(userID));
+
+                continueMenu();
                 break;
+
             case 7:
-                // TODO - Get all books by language
+                // DELETE USER BY ID
+                clearScreen();
+                printAllUsers();
+                System.out.println();
+
+                int userDeleteID = 0;
+                System.out.println(dialog.insertID());
+                userDeleteID = scanner.nextInt();
+
+                System.out.println(BrugerFacade.seltBruger(userDeleteID));
+
+                continueMenu();
+
                 break;
+
             case 8:
-                // TODO - Get all books by ISBN
+                // REGISTER USER
+                clearScreen();
+                System.out.print(dialog.insertName());
+                String name = scanner.next();
+                System.out.println();
+                System.out.print(dialog.insertAdresse());
+                String adresse = scanner.next();
+
+                System.out.println();
+
+                // TODO - dont work mabye fix later
+                /*System.out.println(dialog.zipcodeList());
+                printAllZipcodes();*/
+
+                System.out.println();
+
+                System.out.print(dialog.insertZipcode());
+                int zipcode = scanner.nextInt();
+
+                System.out.println(BrugerFacade.registrerBruger(new Bruger(name, adresse, zipcode)));
+
+                continueMenu();
                 break;
+
             case 9:
+                // GET ALL AUTHORS
+                clearScreen();
+                printAllAuthors();
+                continueMenu();
+
+                break;
+
+            case 10:
+                // GET AUTHOR BY ID
+                clearScreen();
+                printAllAuthors();
+                System.out.println();
+
+                int authorID = 0;
+                System.out.println(dialog.insertID());
+                authorID = scanner.nextInt();
+                System.out.println(ForfatterFacade.hentForfatterByID(authorID));
+
+                continueMenu();
+                break;
+
+            case 11: // TODO not done
+                // DELETE AUTHOR BY ID
+                clearScreen();
+                printAllAuthors();
+                System.out.println();
+
+                int authorDeleteID = 0;
+                System.out.println(dialog.insertID());
+                authorDeleteID = scanner.nextInt();
+
+                // TODO - dont work rn has to make a method in ForfatterFacade and ForfatterMapper
+                // TODO ^^ that deletes an author.
+
+                // System.out.println(ForfatterFacade.sletForfatter(authorDeleteID));
+
+                continueMenu();
+
+                break;
+
+            case 12:
+                // REGISTER AUTHOR
+                clearScreen();
+                System.out.print(dialog.insertName());
+                String authorName = scanner.next();
+                System.out.println();
+
+                System.out.println(ForfatterFacade.registrerForfatter(new Forfatter(authorName)));
+
+                break;
+
+            case 13:
+                // GET ALL ZIPCODES
+                clearScreen();
+                printAllZipcodes();
+                continueMenu();
+
+                break;
+
+            case 14:
+                // GET ZIPCODE BY ID
+                clearScreen();
+                printAllZipcodes();
+                System.out.println();
+
+                int zipcodeID = 0;
+                System.out.print(dialog.insertID());
+                zipcodeID = scanner.nextInt();
+                System.out.println(PostnrFacade.hentPostnrByID(zipcodeID));
+
+                continueMenu();
+                break;
+
+            case 15:
+                // DELETE ZIPCODE BY ID
+                clearScreen();
+                printAllZipcodes();
+                System.out.println();
+
+                int zipcodeDeleteID = 0;
+                System.out.print(dialog.insertID());
+                zipcodeDeleteID = scanner.nextInt();
+
+                System.out.println(PostnrFacade.deletePostnr(zipcodeDeleteID));
+
+                continueMenu();
+
+                break;
+
+            case 21:
+                exit();
                 break;
 
             default:
@@ -203,6 +347,15 @@ public class Menu
         for (Bruger bruger : brugerList)
         {
             System.out.println(bruger);
+        }
+    }
+
+    private void printAllZipcodes()
+    {
+        List<Postnr> postnrList = PostnrFacade.hentPostnr();
+        for (Postnr postnr : postnrList)
+        {
+            System.out.println(postnr);
         }
     }
 }

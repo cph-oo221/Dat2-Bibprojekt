@@ -27,4 +27,11 @@ public class PostnrFacade
 
         return postnrMapper.registerZipCode(postnr);
     }
+
+    public static Postnr deletePostnr(int postnrID)
+    {
+        PostnrMapper postnrMapper = new PostnrMapper();
+
+        return postnrMapper.deleteZipCode(postnrID);
+    }
 }

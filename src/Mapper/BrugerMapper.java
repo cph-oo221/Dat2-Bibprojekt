@@ -97,7 +97,7 @@ public class BrugerMapper
 
                 bruger = new Bruger(brugerID, navn, adresse, postnr);
             }
-            System.out.println("Bruger slettet: " + bruger.toString());
+
 
             statementDelete.setInt(1, brugerID);
             statementDelete.executeUpdate();

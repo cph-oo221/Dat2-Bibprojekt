@@ -31,4 +31,11 @@ public abstract class Dialog
 
     public abstract String authorList();
 
+    public abstract String insertName();
+
+    public abstract String insertAdresse();
+
+    public abstract String insertZipcode();
+
+    public abstract String zipcodeList();
 }

@@ -80,16 +80,16 @@ public class EngelskDialog extends Dialog
         System.out.println("11. Delete Author by ID");
         System.out.println("12. Register Author");
 
-        System.out.println("13. Get all Loans");
-        System.out.println("14. Get Loan by ID");
-        System.out.println("15. Delete Loan by ID");
-        System.out.println("16. Register Loan");
+        System.out.println("13. Get all Zipcodes");
+        System.out.println("14. Get Zipcode by ID");
+        System.out.println("15. Delete Zipcode by ID");
+        System.out.println("16. Register Zipcode");
 
-        System.out.println("17. Get all Zipcodes");
-        System.out.println("18. Get Zipcode by ID");
-        System.out.println("19. Delete Zipcode by ID");
-        System.out.println("20. Register Zipcode");
-
+        System.out.println("17. Get all Loans");
+        System.out.println("18. Get Loan by ID");
+        System.out.println("19. Delete Loan by ID");
+        System.out.println("20. Register Loan");
+        
         System.out.println("21. Exit");
     }
 
@@ -127,5 +127,29 @@ public class EngelskDialog extends Dialog
     public String authorList()
     {
         return "Author list: ";
+    }
+
+    @Override
+    public String insertName()
+    {
+        return "Insert name: ";
+    }
+
+    @Override
+    public String insertAdresse()
+    {
+        return "Insert address: ";
+    }
+
+    @Override
+    public String insertZipcode()
+    {
+        return "Insert zipcode: ";
+    }
+
+    @Override
+    public String zipcodeList()
+    {
+        return "Zipcode list: ";
     }
 }

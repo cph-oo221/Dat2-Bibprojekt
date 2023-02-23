@@ -80,15 +80,16 @@ public class DanskDialog extends Dialog
         System.out.println("11. Slet forfatter på ID");
         System.out.println("12. Opret forfatter");
 
-        System.out.println("13. Hent alle lån");
-        System.out.println("14. Hent lån på ID");
-        System.out.println("15. Slet lån på ID");
-        System.out.println("16. Opret lån");
+        System.out.println("13. Hent alle postnumre");
+        System.out.println("14. Hent postnummer på ID");
+        System.out.println("15. Slet postnummer på ID");
+        System.out.println("16. Opret postnummer");
 
-        System.out.println("17. Hent alle postnumre");
-        System.out.println("18. Hent postnummer på ID");
-        System.out.println("19. Slet postnummer på ID");
-        System.out.println("20. Opret postnummer");
+        System.out.println("17. Hent alle lån");
+        System.out.println("18. Hent lån på ID");
+        System.out.println("19. Slet lån på ID");
+        System.out.println("20. Opret lån");
+
 
         System.out.println("21. Afslut");
     }
@@ -127,5 +128,29 @@ public class DanskDialog extends Dialog
     public String authorList()
     {
         return "Forfatter liste: ";
+    }
+
+    @Override
+    public String insertName()
+    {
+        return "Indtast navn: ";
+    }
+
+    @Override
+    public String insertAdresse()
+    {
+        return "Indtast adresse: ";
+    }
+
+    @Override
+    public String insertZipcode()
+    {
+        return "Indtast postnummer: ";
+    }
+
+    @Override
+    public String zipcodeList()
+    {
+        return "Postnummer liste: ";
     }
 }
