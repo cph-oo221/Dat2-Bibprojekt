@@ -48,6 +48,8 @@ public class Menu
                 System.out.println("Ugyldigt valg");
                 break;
         }
+
+        clearScreen();
     }
 
 
@@ -191,7 +193,7 @@ public class Menu
     }
 
 
-    private void bookMenu()
+    /*private void bookMenu()
     {
         dialog.menuOptionsBook();
         System.out.print(dialog.userChoice());
@@ -238,7 +240,7 @@ public class Menu
                 bookMenu();
                 break;
         }
-    }
+    }*/
 
 
 
